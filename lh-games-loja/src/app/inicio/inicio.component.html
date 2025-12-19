@@ -1,0 +1,47 @@
+<main>
+
+  <section id="section-banner">
+    <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="assets/img/banner1.PNG" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/banner2.PNG" class="d-block w-100">
+        </div>
+        <div class="carousel-item">
+          <img src="assets/img/banner3.PNG" class="d-block w-100">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <h2>Jogos em Promoção</h2>
+
+  <p *ngIf="produtos.length === 0">Nenhum produto encontrado.</p>
+
+  <mat-grid-list cols="3" rowHeight="450px">
+    <mat-grid-tile *ngFor="let produto of produtos">
+      <mat-card>
+        <img mat-card-image [src]="'assets/img/' + produto.foto">
+
+        <mat-card-header>
+          <mat-card-title>{{ produto.produto }}</mat-card-title>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ produto.descricao }}</p>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <p>{{ produto.preco | currency:'BRL' }}</p>
+          <button mat-button>Comprar</button>
+        </mat-card-actions>
+      </mat-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+
+</main>
+
+       
+
